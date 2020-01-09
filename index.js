@@ -15,7 +15,7 @@ function submitData(name, email) {
         body: JSON.stringify(formData)
       };
        
-      fetch("http://localhost:3000/users", configObj)
+      return fetch("http://localhost:3000/users", configObj)
         .then(function(response) {
           return response.json();
         })
@@ -24,7 +24,6 @@ function submitData(name, email) {
           console.log(object.id)
         })
         .catch(function(error) {
-          alert("Bad things! Ragnarők!");
-          console.log(error.message);
+          document.body.innerHTML = error.message
         });
 }
